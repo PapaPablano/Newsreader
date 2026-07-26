@@ -1,14 +1,15 @@
 import express from 'express';
 import path from 'path';
 import fs from 'fs';
-import { fileURLToPath } from 'url';
 import { createServer as createViteServer } from 'vite';
 import { GoogleGenAI } from '@google/genai';
 import { buildSynthesisPrompt } from './schema/build-prompt.js';
 import { validateSynthesis } from './schema/validate-synthesis.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// Both `tsx server.ts` (dev) and `node dist/server.mjs` (prod) are invoked
+// from the project root, so process.cwd() is a stable base for project-relative
+// paths -- unlike __dirname, which would point inside dist/ once bundled.
+const projectRoot = process.cwd();
 
 async function startServer() {
   const app = express();
@@ -44,14 +45,14 @@ async function startServer() {
   // API 2: List Beats & Archives
   app.get('/api/beats', (req, res) => {
     try {
-      const beatsPath = path.join(__dirname, 'config', 'beats.json');
+      const beatsPath = path.join(projectRoot, 'config', 'beats.json');
       if (!fs.existsSync(beatsPath)) {
         return res.status(404).json({ error: 'beats.json config not found' });
       }
       const beats = JSON.parse(fs.readFileSync(beatsPath, 'utf8'));
 
       // Check available data files in data/
-      const dataDir = path.join(__dirname, 'data');
+      const dataDir = path.join(projectRoot, 'data');
       let archives: string[] = [];
       if (fs.existsSync(dataDir)) {
         archives = fs.readdirSync(dataDir).filter(f => f.endsWith('.json'));
@@ -77,7 +78,7 @@ async function startServer() {
       const { slug } = req.params;
       const requestedDate = req.query.date as string;
 
-      const dataDir = path.join(__dirname, 'data');
+      const dataDir = path.join(projectRoot, 'data');
       let files: string[] = [];
       if (fs.existsSync(dataDir)) {
         files = fs.readdirSync(dataDir).filter(f => f.startsWith(`${slug}-`) && f.endsWith('.json'));
@@ -97,7 +98,7 @@ async function startServer() {
       }
 
       // Fallback: If no file exists for this beat slug, load beat definition from beats.json
-      const beatsPath = path.join(__dirname, 'config', 'beats.json');
+      const beatsPath = path.join(projectRoot, 'config', 'beats.json');
       if (fs.existsSync(beatsPath)) {
         const beats = JSON.parse(fs.readFileSync(beatsPath, 'utf8'));
         const beat = beats.find((b: any) => b.slug === slug);
@@ -270,7 +271,7 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = path.join(__dirname, 'dist');
+    const distPath = path.join(projectRoot, 'dist');
     app.use(express.static(distPath));
     app.get('*all', (req, res) => {
       res.sendFile(path.join(distPath, 'index.html'));
