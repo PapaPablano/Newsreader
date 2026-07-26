@@ -7,6 +7,7 @@ import { WorkflowInspector } from './components/WorkflowInspector';
 import { ReliabilityScoreManagerModal } from './components/ReliabilityScoreManagerModal';
 import { BeatDefinition, SynthesisResult } from './types';
 import { AlertCircle, RefreshCw } from 'lucide-react';
+import { API_BASE } from './lib/api';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<'beat' | 'search' | 'workflow'>('beat');
@@ -30,7 +31,7 @@ export default function App() {
   useEffect(() => {
     async function loadBeatsConfig() {
       try {
-        const res = await fetch('/api/beats');
+        const res = await fetch(`${API_BASE}/api/beats`);
         if (res.ok) {
           const data = await res.json();
           if (data.beats && data.beats.length > 0) {
@@ -53,7 +54,7 @@ export default function App() {
       setError(null);
 
       try {
-        const url = `/api/beat/${selectedSlug}${selectedDate ? `?date=${selectedDate}` : ''}`;
+        const url = `${API_BASE}/api/beat/${selectedSlug}${selectedDate ? `?date=${selectedDate}` : ''}`;
         const res = await fetch(url);
         
         if (!res.ok) {
@@ -76,7 +77,7 @@ export default function App() {
   // Handle live search execution
   const handlePerformLiveSearch = async (query: string): Promise<SynthesisResult | null> => {
     try {
-      const res = await fetch('/api/search', {
+      const res = await fetch(`${API_BASE}/api/search`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query })

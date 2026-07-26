@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import fs from 'fs';
+import cors from 'cors';
 import { createServer as createViteServer } from 'vite';
 import { GoogleGenAI } from '@google/genai';
 import { buildSynthesisPrompt } from './schema/build-prompt.js';
@@ -13,7 +14,14 @@ const projectRoot = process.cwd();
 
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  // Render (and most hosts) assign the port dynamically via $PORT.
+  const PORT = Number(process.env.PORT) || 3000;
+
+  // The frontend is deployed separately on GitHub Pages, so API requests
+  // arrive cross-origin. ALLOWED_ORIGIN defaults to the Pages origin;
+  // override via env if the frontend moves.
+  const allowedOrigin = process.env.ALLOWED_ORIGIN || 'https://papapablano.github.io';
+  app.use(cors({ origin: allowedOrigin }));
 
   app.use(express.json());
 
