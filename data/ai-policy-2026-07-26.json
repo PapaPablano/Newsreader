@@ -1,0 +1,161 @@
+{
+  "schema_version": "1.0",
+  "beat_slug": "ai-policy",
+  "beat_title": "AI Policy & Governance",
+  "synthesized_at": "2026-07-26T06:00:00Z",
+  "headline": "Global Regulators Lock Horns Over Open-Weight Model Restrictions and Watermarking Enforceability",
+  "summary_intro": "As international bodies finalize compliance benchmarks for frontier AI models, major outlets report divergent expectations regarding open-weights model bans vs. mandatory watermark verification. While new consensus emerges on watermarking standards for synthetic media, enforcement timelines remain heavily contested across jurisdictions.",
+  "sources_count": 4,
+  "sources": [
+    {
+      "id": "src_reuters",
+      "outlet": "Reuters",
+      "title": "G7 AI Framework Mandates Real-Time Synthetic Media Watermarking by Q4",
+      "url": "https://www.reuters.com/technology/g7-ai-framework-watermarking-mandate-2026",
+      "published_at": "2026-07-26T03:15:00Z",
+      "snippet": "G7 digital ministers agreed on mandatory watermarking protocols for all foundation models generating synthetic audio, image, and text."
+    },
+    {
+      "id": "src_bloomberg",
+      "outlet": "Bloomberg",
+      "title": "US Commerce Department Weighs Strict Export Limits on Open-Weight AI Weights",
+      "url": "https://www.bloomberg.com/news/articles/2026-07-25/us-open-weights-export-control-debate",
+      "published_at": "2026-07-25T21:40:00Z",
+      "snippet": "US officials are debating a threshold-based export rule restricting open distribution of model weights above 10^26 FLOPs, sparking pushback from open-source developers."
+    },
+    {
+      "id": "src_techreview",
+      "outlet": "MIT Technology Review",
+      "title": "Why Technical Watermarking Enforcement Remains a Cryptographic Puzzle",
+      "url": "https://www.technologyreview.com/2026/07/26/watermark-technical-limits/",
+      "published_at": "2026-07-26T01:00:00Z",
+      "snippet": "While policy papers call for mandatory watermarking, security researchers warn that current statistical watermarks can be removed with low-cost fine-tuning."
+    },
+    {
+      "id": "src_arstechnica",
+      "outlet": "Ars Technica",
+      "title": "EU AI Office Releases First Compliance Guidelines for Open-Source Model Creators",
+      "url": "https://arstechnica.com/ai/2026/07/eu-ai-office-open-source-guidelines/",
+      "published_at": "2026-07-25T18:30:00Z",
+      "snippet": "The EU AI Office clarified exemptions for non-commercial open-source model maintainers under systemic risk classification criteria."
+    }
+  ],
+  "consensus": [
+    {
+      "id": "c1",
+      "fact": "All reporting outlets agree that international regulatory bodies are prioritizing synthetic media watermarking as a primary defense against election deepfakes.",
+      "supporting_outlets": ["Reuters", "MIT Technology Review", "Ars Technica"],
+      "citation_ids": ["src_reuters", "src_techreview"]
+    },
+    {
+      "id": "c2",
+      "fact": "Outlets confirm that open-source AI developers face growing legal uncertainty surrounding systemic risk thresholds.",
+      "supporting_outlets": ["Bloomberg", "Ars Technica"],
+      "citation_ids": ["src_bloomberg", "src_arstechnica"]
+    }
+  ],
+  "disagreements": [
+    {
+      "id": "d1",
+      "topic": "Feasibility and Security of Watermarking Mandates",
+      "summary": "Reporting diverges sharply on whether watermarking can be realistically enforced at scale.",
+      "stance_a": {
+        "outlet": "Reuters",
+        "claim": "G7 ministers claim standardized watermarking protocols will be ready for full commercial enforcement within five months.",
+        "quote": "Ministers expressed confidence that cryptographic watermarks will provide end-to-end verification across major platforms by Q4.",
+        "url": "https://www.reuters.com/technology/g7-ai-framework-watermarking-mandate-2026"
+      },
+      "stance_b": {
+        "outlet": "MIT Technology Review",
+        "claim": "Cryptographic and security researchers emphasize that watermarks can be trivially stripped or spoofed via minor post-processing.",
+        "quote": "Security audits demonstrate that fine-tuning models with noisy data completely eradicates statistical watermarks without destroying utility.",
+        "url": "https://www.technologyreview.com/2026/07/26/watermark-technical-limits/"
+      },
+      "analysis": "Policy reporters at wire services focus on government timelines and regulatory commitments, whereas technical publications evaluate the underlying cryptographic vulnerabilities that complicate policy implementation."
+    },
+    {
+      "id": "d2",
+      "topic": "Open-Weight Model Export Restrictions",
+      "summary": "Outlets report conflicting accounts regarding whether the US administration will enact a blanket ban or tiered exemptions.",
+      "stance_a": {
+        "outlet": "Bloomberg",
+        "claim": "Commerce Department officials favor strict compute-based thresholds restricting open weight downloads internationally.",
+        "quote": "Sources close to the administration indicate proposal drafts apply export controls to any open weight artifact exceeding 10^26 FLOPs.",
+        "url": "https://www.bloomberg.com/news/articles/2026-07-25/us-open-weights-export-control-debate"
+      },
+      "stance_b": {
+        "outlet": "Ars Technica",
+        "claim": "European regulatory bodies favor broad exemptions for non-commercial open-source research maintainers.",
+        "quote": "The EU AI Office draft explicitly carve out exemptions for academic maintainers, contrasting sharply with proposed Washington restrictions.",
+        "url": "https://arstechnica.com/ai/2026/07/eu-ai-office-open-source-guidelines/"
+      },
+      "analysis": "Divergence stems from different regional approaches: Washington treats frontier weights as national security dual-use assets, while Brussels balances governance with open innovation exemptions."
+    }
+  ],
+  "sections": [
+    {
+      "title": "G7 Watermarking Mandate Accelerates",
+      "summary": "Governments move toward unified synthetic media tracking despite technical hurdles.",
+      "sentences": [
+        {
+          "id": "s1",
+          "text": "Digital ministers from G7 nations announced a binding framework requiring foundation model providers to embed persistent watermarks into all generated media by the fourth quarter.",
+          "citations": [
+            {
+              "source_id": "src_reuters",
+              "outlet": "Reuters",
+              "title": "G7 AI Framework Mandates Real-Time Synthetic Media Watermarking by Q4",
+              "url": "https://www.reuters.com/technology/g7-ai-framework-watermarking-mandate-2026",
+              "quote": "G7 digital ministers agreed on mandatory watermarking protocols for all foundation models generating synthetic audio, image, and text."
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "text": "However, security researchers warn that policy expectations far exceed technical realities, noting that low-cost fine-tuning easily strips embedded identifiers.",
+          "citations": [
+            {
+              "source_id": "src_techreview",
+              "outlet": "MIT Technology Review",
+              "title": "Why Technical Watermarking Enforcement Remains a Cryptographic Puzzle",
+              "url": "https://www.technologyreview.com/2026/07/26/watermark-technical-limits/",
+              "quote": "Security researchers warn that current statistical watermarks can be removed with low-cost fine-tuning."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Open-Source Weights Debate Transatlantic Divide",
+      "summary": "US and EU regulators diverge on open model weight distribution.",
+      "sentences": [
+        {
+          "id": "s3",
+          "text": "The US Department of Commerce is reviewing draft regulations that would place export restrictions on open-weight AI models that exceed compute training thresholds.",
+          "citations": [
+            {
+              "source_id": "src_bloomberg",
+              "outlet": "Bloomberg",
+              "title": "US Commerce Department Weighs Strict Export Limits on Open-Weight AI Weights",
+              "url": "https://www.bloomberg.com/news/articles/2026-07-25/us-open-weights-export-control-debate",
+              "quote": "US officials are debating a threshold-based export rule restricting open distribution of model weights above 10^26 FLOPs."
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "text": "In contrast, European guidelines issued by the EU AI Office provide specific carve-outs for non-commercial maintainers to foster local developer ecosystems.",
+          "citations": [
+            {
+              "source_id": "src_arstechnica",
+              "outlet": "Ars Technica",
+              "title": "EU AI Office Releases First Compliance Guidelines for Open-Source Model Creators",
+              "url": "https://arstechnica.com/ai/2026/07/eu-ai-office-open-source-guidelines/",
+              "quote": "The EU AI Office clarified exemptions for non-commercial open-source model maintainers under systemic risk classification criteria."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

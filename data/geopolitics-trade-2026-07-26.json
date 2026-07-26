@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "beat_slug": "geopolitics-trade",
+  "beat_title": "Geopolitics & International Trade",
+  "synthesized_at": "2026-07-26T06:00:00Z",
+  "headline": "Maritime Security Protocols Prompt Tariff Adjustments Across Strategic Supply Corridors",
+  "summary_intro": "International news organizations report shifting diplomatic positions regarding maritime insurance surcharges and bilateral tariff exemptions, highlighting tensions between supply chain resilience and global trade commitments.",
+  "sources_count": 3,
+  "sources": [
+    {
+      "id": "src_bbc_geo",
+      "outlet": "BBC News",
+      "title": "Naval Escort Alliances Stabilize Shipping Rates in Critical Maritime Straits",
+      "url": "http://feeds.bbci.co.uk/news/world/rss.xml",
+      "published_at": "2026-07-26T04:30:00Z",
+      "snippet": "Joint naval patrols in major transit lanes have reduced maritime war risk insurance premiums by 18% month-over-month."
+    },
+    {
+      "id": "src_ap_geo",
+      "outlet": "Associated Press",
+      "title": "Bilateral Summit Reaches Preliminary Accord on Strategic Raw Material Tariffs",
+      "url": "https://apnews.com/hub/world-news",
+      "published_at": "2026-07-25T22:10:00Z",
+      "snippet": "Negotiators agreed to reciprocal duty waivers on critical battery metals and defense-grade alloys."
+    },
+    {
+      "id": "src_fa_geo",
+      "outlet": "Foreign Affairs",
+      "title": "The New Minilateralism: How Regional Pacts Are Replacing Multilateral Trade Frameworks",
+      "url": "https://www.foreignaffairs.com/rss.xml",
+      "published_at": "2026-07-26T01:15:00Z",
+      "snippet": "Strategic policy analysis highlights how targeted minilateral agreements are superseding broad WTO consensus building."
+    }
+  ],
+  "consensus": [
+    {
+      "id": "c1",
+      "fact": "All outlets confirm maritime security interventions have successfully eased immediate freight insurance rate spikes.",
+      "supporting_outlets": ["BBC News", "Associated Press"],
+      "citation_ids": ["src_bbc_geo"]
+    }
+  ],
+  "disagreements": [
+    {
+      "id": "d1",
+      "topic": "Longevity and Stability of Minilateral Trade Pacts",
+      "summary": "Reporting diverges on whether bilateral tariff carve-outs provide long-term supply stability or weaken global rules-based order.",
+      "stance_a": {
+        "outlet": "Associated Press",
+        "claim": "Trade negotiators view targeted raw material waivers as essential pragmatism for national economic security.",
+        "quote": "Bilateral duty waivers guarantee critical material flows without waiting for lengthy multilateral consensus.",
+        "url": "https://apnews.com/hub/world-news"
+      },
+      "stance_b": {
+        "outlet": "Foreign Affairs",
+        "claim": "Policy strategists argue minilateral pacts fragment global trade rules and invite systemic diplomatic friction.",
+        "quote": "Fragmented bilateral agreements degrade foundational WTO non-discrimination principles, creating unpredictable trade regimes.",
+        "url": "https://www.foreignaffairs.com/rss.xml"
+      },
+      "analysis": "Wire coverage focuses on immediate tariff relief for domestic manufacturing, whereas foreign policy journals analyze the long-term erosion of global trade institution authority."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Maritime Security Escorts Lower Transit Surcharges",
+      "summary": "Naval patrols ease maritime insurance costs along trade lanes.",
+      "sentences": [
+        {
+          "id": "s1",
+          "text": "Multi-nation naval escort operations across key maritime chokepoints have lowered war-risk cargo insurance premiums by nearly twenty percent.",
+          "citations": [
+            {
+              "source_id": "src_bbc_geo",
+              "outlet": "BBC News",
+              "title": "Naval Escort Alliances Stabilize Shipping Rates",
+              "url": "http://feeds.bbci.co.uk/news/world/rss.xml",
+              "quote": "Joint naval patrols in major transit lanes have reduced maritime war risk insurance premiums."
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "text": "Concurrently, bilateral trade negotiators established tariff exemptions for strategic raw metals to safeguard domestic supply chains.",
+          "citations": [
+            {
+              "source_id": "src_ap_geo",
+              "outlet": "Associated Press",
+              "title": "Bilateral Summit Reaches Preliminary Accord",
+              "url": "https://apnews.com/hub/world-news",
+              "quote": "Negotiators agreed to reciprocal duty waivers on critical battery metals."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

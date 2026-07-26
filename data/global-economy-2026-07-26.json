@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "beat_slug": "global-economy",
+  "beat_title": "Global Economy & Inflation",
+  "synthesized_at": "2026-07-26T06:00:00Z",
+  "headline": "Central Bank Signals Split Over Rate Cut Speed as Energy Prices Fluctuate",
+  "summary_intro": "Major financial outlets present conflicting interpretations of central bank rate trajectories. While wire reports emphasize steady disinflation trends, financial dailies highlight persistent service-sector wage pressures threatening policy easing targets.",
+  "sources_count": 4,
+  "sources": [
+    {
+      "id": "src_ft",
+      "outlet": "Financial Times",
+      "title": "Service Sector Wage Growth Threatens ECB and Fed Easing Schedules",
+      "url": "https://www.ft.com/content/global-economy-rate-cuts-2026",
+      "published_at": "2026-07-26T04:20:00Z",
+      "snippet": "Sticky service inflation is forcing central bankers to reconsider aggressive rate cut schedules planned for late 2026."
+    },
+    {
+      "id": "src_ap",
+      "outlet": "Associated Press",
+      "title": "Global Headline Inflation Cools to 3-Year Low Across Major Economies",
+      "url": "https://apnews.com/article/global-inflation-cools-july-2026",
+      "published_at": "2026-07-26T02:00:00Z",
+      "snippet": "Declining shipping container tariffs and stable agricultural prices pushed overall CPI metrics downward across G20 nations."
+    },
+    {
+      "id": "src_wsj",
+      "outlet": "Wall Street Journal",
+      "title": "Bond Markets Price In Delayed Rate Cuts Following Strong Labor Data",
+      "url": "https://www.wsj.com/economy/central-banks/bond-yields-surge-rate-cut-delay",
+      "published_at": "2026-07-25T19:45:00Z",
+      "snippet": "Treasury yields rebounded sharply after non-farm payroll data exceeded analyst expectations for the second straight month."
+    },
+    {
+      "id": "src_reuters_econ",
+      "outlet": "Reuters",
+      "title": "IMF Raises Global Growth Forecast Marginally to 3.2% for 2026",
+      "url": "https://www.reuters.com/business/imf-global-growth-forecast-update-2026",
+      "published_at": "2026-07-25T15:10:00Z",
+      "snippet": "The IMF cited resilient consumer spending in emerging markets while warning of elevated sovereign debt servicing costs."
+    }
+  ],
+  "consensus": [
+    {
+      "id": "c1",
+      "fact": "All major outlets report that headline inflation figures have moderated across most G20 nations compared to 2025 levels.",
+      "supporting_outlets": ["Associated Press", "Financial Times", "Reuters"],
+      "citation_ids": ["src_ap", "src_ft"]
+    }
+  ],
+  "disagreements": [
+    {
+      "id": "d1",
+      "topic": "Rate Cut Timeline and Market Expectations",
+      "summary": "Outlets disagree on whether central bank monetary policy will pivot to easing by September or remain restricted into 2027.",
+      "stance_a": {
+        "outlet": "Associated Press",
+        "claim": "Headline CPI cooling opens a clear pathway for rate cuts starting in the upcoming autumn quarter.",
+        "quote": "Sustained declines in energy and food tariffs provide central banks the needed margin to initiate interest rate reductions.",
+        "url": "https://apnews.com/article/global-inflation-cools-july-2026"
+      },
+      "stance_b": {
+        "outlet": "Financial Times",
+        "claim": "Service inflation and tight labor markets will force rate setters to freeze reductions through year-end.",
+        "quote": "Core service inflation remains uncomfortably high above target, making premature monetary easing a high-risk policy gamble.",
+        "url": "https://www.ft.com/content/global-economy-rate-cuts-2026"
+      },
+      "analysis": "Associated Press focuses on headline CPI aggregates, while Financial Times analyzes core service components and wage growth metrics favored by central bank governors."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Headline Disinflation Meets Core Service Persistence",
+      "summary": "Dual trends shape the macroeconomic outlook.",
+      "sentences": [
+        {
+          "id": "s1",
+          "text": "Headline CPI indicators fell to three-year lows across major economies, driven primarily by stabilizing agricultural supply chains.",
+          "citations": [
+            {
+              "source_id": "src_ap",
+              "outlet": "Associated Press",
+              "title": "Global Headline Inflation Cools to 3-Year Low Across Major Economies",
+              "url": "https://apnews.com/article/global-inflation-cools-july-2026",
+              "quote": "Declining shipping container tariffs and stable agricultural prices pushed overall CPI metrics downward."
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "text": "Despite headline cooling, central bank economists express concern over persistent service sector wage gains that threaten long-term disinflation targets.",
+          "citations": [
+            {
+              "source_id": "src_ft",
+              "outlet": "Financial Times",
+              "title": "Service Sector Wage Growth Threatens ECB and Fed Easing Schedules",
+              "url": "https://www.ft.com/content/global-economy-rate-cuts-2026",
+              "quote": "Sticky service inflation is forcing central bankers to reconsider aggressive rate cut schedules."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

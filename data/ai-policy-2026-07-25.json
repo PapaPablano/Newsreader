@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "beat_slug": "ai-policy",
+  "beat_title": "AI Policy & Governance",
+  "synthesized_at": "2026-07-25T06:00:00Z",
+  "headline": "Transatlantic Regulators Debate Foundation Model Systemic Risk Thresholds",
+  "summary_intro": "Negotiators from North America and Europe convene to evaluate compute benchmark definitions for frontier AI governance ahead of upcoming enforcement deadlines.",
+  "sources_count": 3,
+  "sources": [
+    {
+      "id": "src_reuters_prev",
+      "outlet": "Reuters",
+      "title": "US and EU Convene Working Group on Frontier AI Safety Audits",
+      "url": "https://www.reuters.com/technology/us-eu-ai-working-group-2026-07-25",
+      "published_at": "2026-07-25T04:00:00Z",
+      "snippet": "Joint working group sessions focused on harmonizing third-party auditing requirements for model deployments."
+    },
+    {
+      "id": "src_bloomberg_prev",
+      "outlet": "Bloomberg",
+      "title": "Tech Industry Associations Request Extended Guidance Period for Model Disclosures",
+      "url": "https://www.bloomberg.com/news/articles/2026-07-25/tech-group-ai-disclosure-petition",
+      "published_at": "2026-07-25T02:00:00Z",
+      "snippet": "Industry groups submitted formal comments citing potential trade secret disclosures in model card reporting requirements."
+    }
+  ],
+  "consensus": [
+    {
+      "id": "c1",
+      "fact": "All outlets confirm regulatory bodies are coordinating on joint auditing standards for frontier models.",
+      "supporting_outlets": ["Reuters", "Bloomberg"],
+      "citation_ids": ["src_reuters_prev"]
+    }
+  ],
+  "disagreements": [],
+  "sections": [
+    {
+      "title": "Harmonization of Third-Party Safety Audits",
+      "summary": "Working groups align on auditing methodologies.",
+      "sentences": [
+        {
+          "id": "s1",
+          "text": "Transatlantic AI safety institutes held joint sessions to harmonize red-teaming benchmarks for frontier foundation models.",
+          "citations": [
+            {
+              "source_id": "src_reuters_prev",
+              "outlet": "Reuters",
+              "title": "US and EU Convene Working Group on AI Safety Audits",
+              "url": "https://www.reuters.com/technology/us-eu-ai-working-group-2026-07-25",
+              "quote": "Joint working group sessions focused on harmonizing third-party auditing requirements."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

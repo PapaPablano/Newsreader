@@ -1,0 +1,64 @@
+[
+  {
+    "slug": "ai-policy",
+    "title": "AI Policy & Governance",
+    "description": "Global regulatory frameworks, executive mandates, and frontier AI safety standards.",
+    "icon_name": "Cpu",
+    "query": "AI policy regulation frontier models governance EU AI Act US Executive Order",
+    "sources": [
+      { "outlet": "Reuters", "feed_url": "https://www.reutersagency.com/feed/?taxonomy=best-topics&post_type=best" },
+      { "outlet": "Bloomberg", "feed_url": "https://www.bloomberg.com/feeds/technology/rss" },
+      { "outlet": "MIT Technology Review", "feed_url": "https://www.technologyreview.com/feed/" },
+      { "outlet": "Ars Technica", "feed_url": "https://feeds.arstechnica.com/arstechnica/index" }
+    ]
+  },
+  {
+    "slug": "global-economy",
+    "title": "Global Economy & Inflation",
+    "description": "Central bank interest rates, international trade flows, debt markets, and growth outlooks.",
+    "icon_name": "TrendingUp",
+    "query": "central banks interest rates inflation economic growth Federal Reserve ECB trade",
+    "sources": [
+      { "outlet": "Financial Times", "feed_url": "https://www.ft.com/?format=rss" },
+      { "outlet": "Wall Street Journal", "feed_url": "https://feeds.a.dj.com/rss/RSSWorldNews.xml" },
+      { "outlet": "Associated Press", "feed_url": "https://apnews.com/hub/ap-top-news" },
+      { "outlet": "Reuters", "feed_url": "https://www.reutersagency.com/feed/?best-topics=business" }
+    ]
+  },
+  {
+    "slug": "climate-energy",
+    "title": "Climate & Energy Transition",
+    "description": "Grid decarbonization, clean energy manufacturing, carbon markets, and international climate pacts.",
+    "icon_name": "Zap",
+    "query": "renewable energy solar wind carbon emissions climate summit oil demand grid transition",
+    "sources": [
+      { "outlet": "The Guardian", "feed_url": "https://www.theguardian.com/environment/rss" },
+      { "outlet": "Bloomberg", "feed_url": "https://www.bloomberg.com/feeds/green/rss" },
+      { "outlet": "Reuters", "feed_url": "https://www.reutersagency.com/feed/?best-topics=environment" }
+    ]
+  },
+  {
+    "slug": "semiconductors",
+    "title": "Semiconductors & Supply Chains",
+    "description": "Chip fab expansion, advanced lithography exports, geopolitical supply bottlenecks, and foundry yields.",
+    "icon_name": "Layers",
+    "query": "semiconductor chips TSMC Nvidia ASML fab manufacturing supply chain export controls",
+    "sources": [
+      { "outlet": "Nikkei Asia", "feed_url": "https://asia.nikkei.com/rss/feed/nar" },
+      { "outlet": "Wall Street Journal", "feed_url": "https://feeds.a.dj.com/rss/WSJCOMUSBusiness.xml" },
+      { "outlet": "TechCrunch", "feed_url": "https://techcrunch.com/feed/" }
+    ]
+  },
+  {
+    "slug": "geopolitics-trade",
+    "title": "Geopolitics & International Trade",
+    "description": "Diplomatic summits, maritime security, trade tariffs, bilateral sanctions, and defense pacts.",
+    "icon_name": "Globe",
+    "query": "diplomacy sanctions trade tariffs defense security summits global alliance",
+    "sources": [
+      { "outlet": "BBC News", "feed_url": "http://feeds.bbci.co.uk/news/world/rss.xml" },
+      { "outlet": "Associated Press", "feed_url": "https://apnews.com/hub/world-news" },
+      { "outlet": "Foreign Affairs", "feed_url": "https://www.foreignaffairs.com/rss.xml" }
+    ]
+  }
+]

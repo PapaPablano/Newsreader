@@ -1,0 +1,9 @@
+name = "news-synthesis-live-worker"
+main = "worker/index.js"
+compatibility_date = "2024-03-01"
+
+[vars]
+ENVIRONMENT = "production"
+
+# Secrets required:
+# ANTHROPIC_API_KEY or GEMINI_API_KEY (stored in Worker Secrets)

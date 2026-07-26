@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "beat_slug": "climate-energy",
+  "beat_title": "Climate & Energy Transition",
+  "synthesized_at": "2026-07-26T06:00:00Z",
+  "headline": "Global Energy Transition Accelerates as Grid Modernization Bottlenecks Trade Commitments",
+  "summary_intro": "As international summits press for binding clean energy targets, leading news outlets report rapid momentum in renewable capacity alongside growing conflict over carbon border tariffs and transmission grid interconnection delays.",
+  "sources_count": 3,
+  "sources": [
+    {
+      "id": "src_guardian_climate",
+      "outlet": "The Guardian",
+      "title": "Global Solar and Wind Additions Surpass 500GW Threshold in Record Year",
+      "url": "https://www.theguardian.com/environment/2026/jul/26/global-solar-wind-capacity-record",
+      "published_at": "2026-07-26T04:10:00Z",
+      "snippet": "New capacity reports reveal renewable energy deployments expanded by 22% year-over-year, driven by rapid utility-scale storage adoption."
+    },
+    {
+      "id": "src_bloomberg_green",
+      "outlet": "Bloomberg",
+      "title": "Grid Interconnection Backlogs Threaten $140B in Clean Power Projects",
+      "url": "https://www.bloomberg.com/news/articles/2026-07-25/grid-interconnection-queue-bottleneck",
+      "published_at": "2026-07-25T20:15:00Z",
+      "snippet": "Transmission queue wait times now average 4.8 years across major markets, creating severe financing risks for developers."
+    },
+    {
+      "id": "src_reuters_env",
+      "outlet": "Reuters",
+      "title": "EU Finalizes Carbon Border Adjustment Mechanism (CBAM) Phase-In Schedule",
+      "url": "https://www.reuters.com/business/environment/eu-cbam-carbon-tax-implementation-2026",
+      "published_at": "2026-07-26T02:45:00Z",
+      "snippet": "European regulators announced strict carbon accounting criteria for imported steel and aluminum, prompting pushback from trading partners."
+    }
+  ],
+  "consensus": [
+    {
+      "id": "c1",
+      "fact": "All outlets confirm renewable energy generation capacity reached historic high volume globally this quarter.",
+      "supporting_outlets": ["The Guardian", "Bloomberg", "Reuters"],
+      "citation_ids": ["src_guardian_climate", "src_bloomberg_green"]
+    },
+    {
+      "id": "c2",
+      "fact": "Reporting confirms transmission grid infrastructure is the single largest physical bottleneck to energy decarbonization.",
+      "supporting_outlets": ["Bloomberg", "The Guardian"],
+      "citation_ids": ["src_bloomberg_green"]
+    }
+  ],
+  "disagreements": [
+    {
+      "id": "d1",
+      "topic": "Impact of Carbon Border Tariffs on Emerging Market Trade",
+      "summary": "Outlets clash on whether carbon border adjustment mechanisms foster global decarbonization or penalize developing economies.",
+      "stance_a": {
+        "outlet": "Reuters",
+        "claim": "EU regulators contend CBAM creates a fair level playing field while incentivizing global industrial decarbonization.",
+        "quote": "Officials emphasize carbon border adjustments ensure domestic clean producers are not undercut by high-emission imports.",
+        "url": "https://www.reuters.com/business/environment/eu-cbam-carbon-tax-implementation-2026"
+      },
+      "stance_b": {
+        "outlet": "The Guardian",
+        "claim": "Environmental trade analysts warn unilateral carbon tariffs trigger retaliatory protectionism and disadvantage emerging exporters.",
+        "quote": "Developing nation representatives characterize unilateral carbon levies as disguised trade barriers that hinder transition capital access.",
+        "url": "https://www.theguardian.com/environment/2026/jul/26/global-solar-wind-capacity-record"
+      },
+      "analysis": "Policy reporting highlights regulatory intent to prevent carbon leakage, whereas developmental trade coverage emphasizes financing inequality between global north and global south industries."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Record Clean Energy Generation Meets Grid Infrastructure Constraints",
+      "summary": "Surging renewables installation faces physical transmission bottlenecks.",
+      "sentences": [
+        {
+          "id": "s1",
+          "text": "Global additions of utility-scale solar and wind power surpassed 500 gigawatts, setting a new annual record for clean energy deployment.",
+          "citations": [
+            {
+              "source_id": "src_guardian_climate",
+              "outlet": "The Guardian",
+              "title": "Global Solar and Wind Additions Surpass 500GW Threshold",
+              "url": "https://www.theguardian.com/environment/2026/jul/26/global-solar-wind-capacity-record",
+              "quote": "New capacity reports reveal renewable energy deployments expanded by 22% year-over-year."
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "text": "Despite generation records, developers face transmission queue delays averaging nearly five years, stalling billions in approved green energy capital.",
+          "citations": [
+            {
+              "source_id": "src_bloomberg_green",
+              "outlet": "Bloomberg",
+              "title": "Grid Interconnection Backlogs Threaten Clean Power Projects",
+              "url": "https://www.bloomberg.com/news/articles/2026-07-25/grid-interconnection-queue-bottleneck",
+              "quote": "Transmission queue wait times now average 4.8 years across major markets."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "reuters",
+    "outlet": "Reuters",
+    "domain": "reuters.com",
+    "type": "Newswire Agency"
+  },
+  {
+    "id": "ap",
+    "outlet": "Associated Press",
+    "domain": "apnews.com",
+    "type": "Newswire Agency"
+  },
+  {
+    "id": "bloomberg",
+    "outlet": "Bloomberg",
+    "domain": "bloomberg.com",
+    "type": "Financial News & Intelligence"
+  },
+  {
+    "id": "bbc",
+    "outlet": "BBC News",
+    "domain": "bbc.com",
+    "type": "Public Service Broadcaster"
+  },
+  {
+    "id": "ft",
+    "outlet": "Financial Times",
+    "domain": "ft.com",
+    "type": "International Business Publication"
+  },
+  {
+    "id": "wsj",
+    "outlet": "Wall Street Journal",
+    "domain": "wsj.com",
+    "type": "Financial & National Daily"
+  },
+  {
+    "id": "guardian",
+    "outlet": "The Guardian",
+    "domain": "theguardian.com",
+    "type": "International Daily"
+  },
+  {
+    "id": "techreview",
+    "outlet": "MIT Technology Review",
+    "domain": "technologyreview.com",
+    "type": "Specialized Tech Publication"
+  },
+  {
+    "id": "arstechnica",
+    "outlet": "Ars Technica",
+    "domain": "arstechnica.com",
+    "type": "Specialized Tech Publication"
+  },
+  {
+    "id": "nikkei",
+    "outlet": "Nikkei Asia",
+    "domain": "asia.nikkei.com",
+    "type": "Asian Markets & Tech Journal"
+  }
+]

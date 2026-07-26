@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "beat_slug": "semiconductors",
+  "beat_title": "Semiconductors & Supply Chains",
+  "synthesized_at": "2026-07-26T06:00:00Z",
+  "headline": "Advanced Lithography Export Bans Trigger Global Fab Relocation and Equipment Stockpiling",
+  "summary_intro": "Major financial and technology outlets report contrasting impacts from stricter lithography export restrictions, with foundry operators ramping domestic capacity expansion while equipment vendors navigate supply chain fragmentation.",
+  "sources_count": 3,
+  "sources": [
+    {
+      "id": "src_nikkei_semi",
+      "outlet": "Nikkei Asia",
+      "title": "Asian Chipmakers Accelerate Non-US Tool Sourcing Amid Export Rule Revisions",
+      "url": "https://asia.nikkei.com/Business/Tech/Semiconductors/asian-chipmakers-tool-sourcing",
+      "published_at": "2026-07-26T05:00:00Z",
+      "snippet": "Leading foundries are restructuring procurement strategies to insulate manufacturing lines from updated export control list definitions."
+    },
+    {
+      "id": "src_wsj_semi",
+      "outlet": "Wall Street Journal",
+      "title": "US Fab Subsidies Face Construction Timeline Delays and Labor Shortages",
+      "url": "https://feeds.a.dj.com/rss/WSJCOMUSBusiness.xml",
+      "published_at": "2026-07-25T19:20:00Z",
+      "snippet": "Domestic semiconductor manufacturing mega-projects report 12-to-18 month delays linked to specialized cleanroom technician shortages."
+    },
+    {
+      "id": "src_techcrunch_semi",
+      "outlet": "TechCrunch",
+      "title": "Next-Gen Packaging and Optical Interconnects Gain Venture Capital Windfall",
+      "url": "https://techcrunch.com/2026/07/26/advanced-packaging-optical-interconnects-funding/",
+      "published_at": "2026-07-26T02:10:00Z",
+      "snippet": "Venture investment in silicon photonics and chiplet interconnect architectures hit new peaks as physical transistor scaling slows."
+    }
+  ],
+  "consensus": [
+    {
+      "id": "c1",
+      "fact": "All outlets confirm semiconductor supply chains are undergoing geopolitical restructuring toward regional fab hubs.",
+      "supporting_outlets": ["Nikkei Asia", "Wall Street Journal", "TechCrunch"],
+      "citation_ids": ["src_nikkei_semi", "src_wsj_semi"]
+    }
+  ],
+  "disagreements": [
+    {
+      "id": "d1",
+      "topic": "Feasibility of Domestic Fab Self-Sufficiency Timelines",
+      "summary": "Financial publications emphasize domestic fab construction delays, whereas technology outlets focus on packaging breakthroughs.",
+      "stance_a": {
+        "outlet": "Wall Street Journal",
+        "claim": "Subsidized domestic fabs are facing severe schedule slip due to labor constraints and permitting bottlenecks.",
+        "quote": "Major foundry builds report operational pushes into 2027 as specialized trade labor shortages hit critical levels.",
+        "url": "https://feeds.a.dj.com/rss/WSJCOMUSBusiness.xml"
+      },
+      "stance_b": {
+        "outlet": "TechCrunch",
+        "claim": "Advanced packaging innovations allow chip designers to achieve performance gains regardless of front-end fab delays.",
+        "quote": "Chiplet architecture modularity enables performance scaling without relying entirely on leading-edge monolithic node availability.",
+        "url": "https://techcrunch.com/2026/07/26/advanced-packaging-optical-interconnects-funding/"
+      },
+      "analysis": "Financial analysts evaluate macroeconomic construction execution risks, while tech industry coverage focuses on architectural workarounds like 2.5D packaging."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Geopolitical Re-alignment of Chip Manufacturing Equipment",
+      "summary": "Foundries recalibrate tool chains in response to export limits.",
+      "sentences": [
+        {
+          "id": "s1",
+          "text": "Foundry operators across Asia are diversifying tool suppliers to mitigate risks associated with shifting lithography export controls.",
+          "citations": [
+            {
+              "source_id": "src_nikkei_semi",
+              "outlet": "Nikkei Asia",
+              "title": "Asian Chipmakers Accelerate Tool Sourcing",
+              "url": "https://asia.nikkei.com/Business/Tech/Semiconductors/asian-chipmakers-tool-sourcing",
+              "quote": "Foundries are restructuring procurement strategies to insulate manufacturing lines."
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "text": "Simultaneously, US domestic fab construction projects face timeline extensions due to critical shortages in certified cleanroom engineers.",
+          "citations": [
+            {
+              "source_id": "src_wsj_semi",
+              "outlet": "Wall Street Journal",
+              "title": "US Fab Subsidies Face Timeline Delays",
+              "url": "https://feeds.a.dj.com/rss/WSJCOMUSBusiness.xml",
+              "quote": "Domestic semiconductor manufacturing mega-projects report 12-to-18 month delays."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
