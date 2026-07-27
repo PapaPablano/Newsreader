@@ -3,7 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import cors from 'cors';
 import { createServer as createViteServer } from 'vite';
-import { GoogleGenAI } from '@google/genai';
+import { callGroq, searchTavily } from './lib/ai-providers.js';
 import { buildSynthesisPrompt } from './schema/build-prompt.js';
 import { validateSynthesis } from './schema/validate-synthesis.js';
 
@@ -24,20 +24,6 @@ async function startServer() {
   app.use(cors({ origin: allowedOrigin }));
 
   app.use(express.json());
-
-  // Shared Gemini client lazy initialization helper
-  const getGenAI = () => {
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) {
-      throw new Error('GEMINI_API_KEY environment variable is not configured');
-    }
-    return new GoogleGenAI({
-      apiKey,
-      httpOptions: {
-        headers: { 'User-Agent': 'aistudio-build' }
-      }
-    });
-  };
 
   // API 1: Health check
   app.get('/api/health', (req, res) => {
@@ -178,74 +164,26 @@ async function startServer() {
       }
 
       console.log(`[Live Search Producer] Processing query: "${query}"`);
-      const ai = getGenAI();
 
-      // Step 1: Use Google Search Grounding to get live news coverage on query
-      const groundingResponse = await ai.models.generateContent({
-        model: 'gemini-3.6-flash',
-        contents: `Find recent, detailed multi-outlet news reports on: "${query}". Identify key facts, statements from different news organizations (e.g. Reuters, Associated Press, Bloomberg, BBC News, Wall Street Journal, Financial Times, The Guardian), and specific points of contention or differing statistics/perspectives.`,
-        config: {
-          tools: [{ googleSearch: {} }]
-        }
-      });
+      // Step 1: Live web search grounding via Tavily
+      let sourcesList = await searchTavily(query);
 
-      const groundingText = groundingResponse.text || '';
-      const chunks = groundingResponse.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
-
-      // Extract sources from grounding metadata
-      const extractedSources = chunks.map((c: any, idx: number) => {
-        const uri = c.web?.uri || 'https://news.google.com';
-        let domain = 'News Source';
-        try {
-          domain = new URL(uri).hostname.replace(/^www\./, '');
-        } catch (e) {}
-
-        // Map domain to recognizable outlet name
-        let outlet = domain;
-        if (domain.includes('reuters')) outlet = 'Reuters';
-        else if (domain.includes('apnews')) outlet = 'Associated Press';
-        else if (domain.includes('bloomberg')) outlet = 'Bloomberg';
-        else if (domain.includes('bbc')) outlet = 'BBC News';
-        else if (domain.includes('wsj')) outlet = 'Wall Street Journal';
-        else if (domain.includes('ft.com')) outlet = 'Financial Times';
-        else if (domain.includes('theguardian')) outlet = 'The Guardian';
-        else if (domain.includes('technologyreview')) outlet = 'MIT Technology Review';
-        else if (domain.includes('arstechnica')) outlet = 'Ars Technica';
-        else if (domain.includes('techcrunch')) outlet = 'TechCrunch';
-        else if (domain.includes('cnbc')) outlet = 'CNBC';
-        else if (domain.includes('nytimes')) outlet = 'New York Times';
-        else if (domain.includes('washingtonpost')) outlet = 'Washington Post';
-
-        return {
-          id: `src_live_${idx + 1}`,
-          outlet,
-          title: c.web?.title || `${outlet} coverage on ${query}`,
-          url: uri,
-          published_at: new Date().toISOString(),
-          snippet: groundingText.slice(0, 300)
-        };
-      });
-
-      // Ensure fallback sources if none extracted from grounding
-      const sourcesList = extractedSources.length > 0 ? extractedSources : [
-        { id: 'src_reuters_live', outlet: 'Reuters', title: `Reuters Coverage: ${query}`, url: 'https://www.reuters.com', snippet: groundingText },
-        { id: 'src_ap_live', outlet: 'Associated Press', title: `AP News Brief: ${query}`, url: 'https://apnews.com', snippet: groundingText },
-        { id: 'src_bloomberg_live', outlet: 'Bloomberg', title: `Bloomberg Analysis: ${query}`, url: 'https://www.bloomberg.com', snippet: groundingText }
-      ];
+      // Ensure fallback sources if Tavily returns nothing
+      if (sourcesList.length === 0) {
+        sourcesList = [
+          { id: 'src_reuters_live', outlet: 'Reuters', title: `Reuters Coverage: ${query}`, url: 'https://www.reuters.com', published_at: new Date().toISOString(), snippet: '' },
+          { id: 'src_ap_live', outlet: 'Associated Press', title: `AP News Brief: ${query}`, url: 'https://apnews.com', published_at: new Date().toISOString(), snippet: '' },
+          { id: 'src_bloomberg_live', outlet: 'Bloomberg', title: `Bloomberg Analysis: ${query}`, url: 'https://www.bloomberg.com', published_at: new Date().toISOString(), snippet: '' }
+        ];
+      }
 
       // Step 2: Pass grounding insights into schema prompt builder
       const prompt = buildSynthesisPrompt(query, sourcesList);
 
-      const synthesisResponse = await ai.models.generateContent({
-        model: 'gemini-3.6-flash',
-        contents: prompt,
-        config: {
-          responseMimeType: 'application/json',
-          systemInstruction: 'You are an objective news synthesis engine. You MUST output strictly valid JSON matching the schema contract. Ensure transparent per-sentence citations and highlight explicit points of disagreement between sources. Never include political bias/leaning tags on source outlet names.'
-        }
-      });
-
-      const rawJson = synthesisResponse.text || '{}';
+      const rawJson = await callGroq(
+        prompt,
+        'You are an objective news synthesis engine. You MUST output strictly valid JSON matching the schema contract. Ensure transparent per-sentence citations and highlight explicit points of disagreement between sources. Never include political bias/leaning tags on source outlet names.'
+      );
       let parsed = JSON.parse(rawJson);
       parsed.search_query = query;
       parsed.synthesized_at = new Date().toISOString();
