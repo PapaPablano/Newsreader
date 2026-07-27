@@ -1,14 +1,14 @@
 /**
  * Scheduled Producer Script (Node.js)
  * Executed via GitHub Actions (.github/workflows/refresh-beats.yml) or locally.
- * Fetches RSS feed entries per sources.json/beats.json, calls Gemini API to synthesize coverage,
+ * Fetches RSS feed entries per sources.json/beats.json, calls Groq API to synthesize coverage,
  * validates output against schema/validate-synthesis.js contract, and writes dated JSON to data/.
  */
 
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { GoogleGenAI } from '@google/genai';
+import { callGroq } from '../lib/ai-providers.js';
 import { buildSynthesisPrompt } from '../schema/build-prompt.js';
 import { validateSynthesis } from '../schema/validate-synthesis.js';
 
@@ -19,16 +19,10 @@ const rootDir = path.resolve(__dirname, '..');
 async function main() {
   console.log('📰 Starting News Synthesis Scheduled Producer...');
 
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
-    console.error('❌ GEMINI_API_KEY environment variable is missing.');
+  if (!process.env.GROQ_API_KEY) {
+    console.error('❌ GROQ_API_KEY environment variable is missing.');
     process.exit(1);
   }
-
-  const ai = new GoogleGenAI({
-    apiKey,
-    httpOptions: { headers: { 'User-Agent': 'aistudio-build' } }
-  });
 
   const beatsPath = path.join(rootDir, 'config', 'beats.json');
   if (!fs.existsSync(beatsPath)) {
@@ -65,16 +59,10 @@ async function main() {
     );
 
     try {
-      const response = await ai.models.generateContent({
-        model: 'gemini-3.6-flash',
-        contents: prompt,
-        config: {
-          responseMimeType: 'application/json',
-          systemInstruction: 'Output strictly valid JSON matching the provided schema. Surface explicit source disagreements and transparent per-sentence citations.'
-        }
-      });
-
-      const rawText = response.text;
+      const rawText = await callGroq(
+        prompt,
+        'Output strictly valid JSON matching the provided schema. Surface explicit source disagreements and transparent per-sentence citations.'
+      );
       const parsed = JSON.parse(rawText);
       parsed.beat_slug = beat.slug;
       parsed.beat_title = beat.title;
