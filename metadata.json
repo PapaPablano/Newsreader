@@ -2,5 +2,5 @@
   "name": "News Synthesis App",
   "description": "Personal multi-source news reader synthesizing coverage from curated RSS feeds and Google News with transparent per-sentence citations and an explicit disagreement panel.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }

@@ -9,7 +9,9 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: GEMINI_API_KEY
+      - key: GROQ_API_KEY
+        sync: false
+      - key: TAVILY_API_KEY
         sync: false
       - key: ALLOWED_ORIGIN
         value: https://papapablano.github.io
