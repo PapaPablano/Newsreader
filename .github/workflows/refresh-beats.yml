@@ -31,7 +31,7 @@ jobs:
 
       - name: Run beat synthesis producer script
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           FORCE_BEAT: ${{ github.event.inputs.force_beat }}
         run: node scripts/refresh-beats.js
 

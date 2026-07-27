@@ -30,7 +30,7 @@ jobs:
       - run: npm ci
       - run: node scripts/refresh-beats.js
         env:
-          GEMINI_API_KEY: \${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: \${{ secrets.GROQ_API_KEY }}
       - run: |
           git add data/
           git diff --staged --quiet || (git commit -m "chore: automated news beat synthesis [skip ci]" && git push)`;
@@ -43,7 +43,7 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (url.pathname === '/api/live-search') {
-      const apiKey = env.GEMINI_API_KEY;
+      const apiKey = env.GROQ_API_KEY;
       const prompt = buildSynthesisPrompt(query, sources);
       const res = await callAI(prompt, apiKey);
       const validation = validateSynthesis(res);
